@@ -1,0 +1,13 @@
+
+@import "variables";
+@import "bag";
+@import "gallery";
+@import "item";
+@import "checkout";
+
+@mixin shopping-components(){
+  @include shopping-bag();
+  @include shopping-gallery();
+  @include shopping-item();
+  @include shopping-checkout();
+}

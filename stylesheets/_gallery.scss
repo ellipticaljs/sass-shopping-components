@@ -1,0 +1,42 @@
+@mixin shopping-gallery(
+  $item-width:$shopping-gallery-item-width,
+  $justification:$shopping-gallery-justification,
+  $alignment:$shopping-gallery-alignment,
+  $item-justification:$shopping-gallery-item-justification,
+  $item-alignment:$shopping-gallery-item-alignment,
+  $item-margin:$shopping-gallery-item-margin,
+  $touch-item-width:$shopping-gallery-touch-item-width
+){
+
+  shopping-gallery{
+    width:100%;
+    @include flexbox($justification:$justification,$alignment:$alignment);
+    @include flex-wrap(wrap);
+    gallery-item{
+      width:$item-width;
+      @include touch-content() {
+        width:$touch-item-width;
+      }
+      @include phone-content(){
+        width:100%;
+      }
+      @include flexbox-column($justification:$item-justification,$alignment:$item-alignment);
+      &>*{
+        margin-bottom:6px;
+        max-width:100%;
+      }
+      .img-container{
+        cursor:pointer;
+        display:block;
+      }
+      img{
+        max-width:100%;
+        height:auto !important;
+      }
+      margin:$item-margin;
+    }
+
+    @content;
+
+  }
+}

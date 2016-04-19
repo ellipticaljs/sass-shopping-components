@@ -1,0 +1,223 @@
+
+
+/// @access private
+@mixin __checkout-step-progress($component:null,$icon-component:null,$complete-component:null,$complete-icon-component:null,
+$font-family:null,
+$icon-size:null,
+$icon-margin-top:null,
+$item-width:null,
+$label-top:null,
+$label-left:null,
+$complete-icon-top:null,
+$complete-icon-left:null,
+$vertical-item-height:null,
+$vertical-label-margin:null
+){
+
+
+  $label-margin-left:$item-width + 1;
+  $icon-margin-left:$item-width - 1;
+  $_icon-margin-top:($icon-size/2) + 1;
+  @if $icon-margin-top != null{
+    $_icon-margin-top:$icon-margin-top;
+  }
+  @if $shopping-checkout-progress-complete-color==null{
+    $shopping-checkout-progress-complete-color:$_secondary-color;
+  }
+
+  @include flexbox($justification:flex-start,$alignment:center);
+  font-family: $font-family;
+
+  checkout-step{
+    @include flexbox-column($justification:flex-start,$alignment:center);
+    width:$item-width;
+    @extend %#{$component}-border !optional;
+    border-bottom:0;
+    border-left:0;
+    border-right:0;
+    &:last-child{
+      border:0 !important;
+      &.complete{
+        border:0 !important;
+      }
+    }
+    progress-icon{
+      display:block;
+      position:relative;
+      height:$icon-size;
+      width:$icon-size;
+      border-radius:50%;
+      @include web-component-base($component:$component,$include-font:false,$include-box-shadow:false);
+      margin-top:-#{$_icon-margin-top};
+      margin-left:-#{$icon-margin-left};
+      &:after{
+        position:absolute;
+        top:-1px;
+        left:$label-left;
+        content:'1';
+        font-size:14px;
+        @extend %#{$icon-component}-icon !optional;
+        font-family: $shopping-checkout-font-family;
+      }
+    }
+
+    @for $i from 2 through 10{
+      &:nth-child(#{$i}){
+        progress-icon{
+          &:after{
+            content:'#{$i}';
+          }
+        }
+      }
+    }
+    progress-label{
+      @include flexbox-column($justification:center,$alignment:center);
+      margin:.5em 0 0 -#{$label-margin-left};
+      font-size:14px;
+      line-height:1;
+      color:inherit;
+      @extend %#{$icon-component}-font !optional;
+      .checkout{
+        background:$shopping-checkout-collapse-item-header-button-background;
+        color:$shopping-checkout-collapse-item-header-button-color;
+        border:0 !important;
+        border-radius:5px;
+        visibility: hidden;
+        &:hover{
+          background:$shopping-checkout-progress-complete-color;
+          color:$shopping-checkout-collapse-item-header-button-color;
+        }
+      }
+    }
+    &.complete{
+      @extend %#{$complete-component}-border !optional;
+      border-bottom:0;
+      border-left:0;
+      border-right:0;
+      progress-icon{
+        @include web-component-base($component:$complete-icon-component,$include-font:false,$include-box-shadow:false);
+        &:after{
+          font-family:$shopping-checkout-progress-complete-icon-font-family;
+          content:$shopping-checkout-progress-complete-icon;
+          @extend %#{$complete-icon-component}-icon !optional;
+          font-size:$shopping-checkout-progress-complete-icon-font-size;
+          left:$complete-icon-left;
+          top:$complete-icon-top;
+        }
+      }
+    }
+    &.current{
+      @extend %#{$component}-border !optional;
+      border-bottom:0;
+      border-left:0;
+      border-right:0;
+      progress-label{
+
+      }
+    }
+  }
+
+ //vertical step progress
+  &.vertical{
+    @include flexbox-column($justification:flex-start,$alignment:flex-start);
+    $_vertical-icon-margin-left:($icon-size/2) + 1;
+    $_vertical-icon-margin-left-last-child:$_vertical-icon-margin-left - 2;
+
+    checkout-step{
+      @include flexbox($justification:flex-start,$alignment:flex-start);
+      @include flex-direction(row);
+      width:auto;
+      height:$vertical-item-height;
+      @extend %#{$component}-border !optional;
+      border-bottom:0;
+      border-top:0;
+      border-right:0;
+      &:last-child{
+        border:0 !important;
+        &.complete{
+          border:0 !important;
+        }
+      }
+      progress-icon{
+        display:block;
+        position:relative;
+        height:$icon-size;
+        width:$icon-size;
+        border-radius:50%;
+        @include web-component-base($component:$icon-component,$include-font:false,$include-box-shadow:false);
+        margin:-2px 0 0 -#{$_vertical-icon-margin-left} !important;
+      }
+      progress-label{
+        @include flexbox-column($justification:flex-start,$alignment:flex-start);
+        margin:$vertical-label-margin;
+      }
+
+      &.complete{
+        @extend %#{$complete-component}-border !optional;
+        border-bottom:0;
+        border-top:0;
+        border-right:0;
+        progress-icon{
+          @include web-component-base($component:$complete-icon-component,$include-font:false,$include-box-shadow:false);
+        }
+      }
+      &.current{
+        @extend %#{$component}-border !optional;
+        border-bottom:0 !important;
+        border-top:0 !important;
+        border-right:0 !important;
+        progress-label{
+
+        }
+      }
+      &:last-child{
+        progress-icon{
+          margin:-2px 0 0 -#{$_vertical-icon-margin-left-last-child} !important;
+        }
+      }
+    }
+  }
+
+}
+
+/// @access public
+/// @param {String} $component
+/// @param {String} $icon-component
+/// @param {String} $complete-component
+/// @param {String} $complete-icon-component,
+/// @param {List} $tags
+/// @param {String} $class
+/// @param {Map} $map
+///
+@mixin mixin-checkout-step-progress($component:null,$icon-component:null,$complete-component:null,
+     $complete-icon-component:null, $tags:null,$class:null){
+
+  $font-family:$shopping-checkout-progress-font-family;
+  $icon-size:$shopping-checkout-progress-icon-size;
+  $item-width:$shopping-checkout-progress-item-width;
+  $icon-margin-top:$shopping-checkout-progress-icon-margin-top;
+  $label-top:$shopping-checkout-progress-label-top;
+  $label-left:$shopping-checkout-progress-label-left;
+  $complete-icon-top:$shopping-checkout-progress-complete-icon-top;
+  $complete-icon-left:$shopping-checkout-progress-complete-icon-left;
+  $vertical-item-height:$shopping-checkout-progress-vertical-item-height;
+  $vertical-label-margin:$shopping-checkout-progress-vertical-label-margin;
+
+  $tag:checkout-step-progress;
+  @include element-tag($tag:$tag,$tags:$tags,$class:$class){
+    @include __checkout-step-progress($component,$icon-component,$complete-component, $complete-icon-component,
+            $font-family,
+            $icon-size,
+            $icon-margin-top,
+            $item-width,
+            $label-top,
+            $label-left,
+            $complete-icon-top,
+            $complete-icon-left,
+            $vertical-item-height,
+            $vertical-label-margin);
+
+    @content;
+  }
+
+}

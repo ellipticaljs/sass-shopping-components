@@ -1,0 +1,92 @@
+$core-primary-color: #2b9af3 !default;
+$core-secondary-color: #63a647 !default;
+
+$shopping-bag-border-radius:2px !default;
+$shopping-bag-border:1px solid #E0E0E0 !default;
+$shopping-bag-background:#f5f5f5 !default;
+$shopping-bag-items-header-height:40px!default;
+$shopping-bag-items-header-padding:.5em !default;
+$shopping-bag-items-header-color:inherit !default;
+$shopping-bag-items-header-margin:0 !default;
+$shopping-bag-items-header-font-size:1em !default;
+$shopping-bag-items-width:65% !default;
+$shopping-bag-items-thumb-margin:0 .75em !default;
+$shopping-bag-items-thumb-width:80px !default;
+$shopping-bag-items-thumb-height:80px !default;
+$shopping-bag-items-thumb-border:1px solid #bdbdbd !default;
+$shopping-bag-items-sku-color:null !default;
+$shopping-bag-items-footer-button-background:#757575 !default;
+$shopping-bag-items-footer-button-color:#fff !default;
+$shopping-bag-items-footer-button-border-radius:2px !default;
+
+
+$shopping-gallery-item-width:30% !default;
+$shopping-gallery-justification:space-between !default;
+$shopping-gallery-alignment:flex-end !default;
+$shopping-gallery-item-justification:flex-end !default;
+$shopping-gallery-item-alignment:center !default;
+$shopping-gallery-item-margin:0 0 2em 0 !default;
+$shopping-gallery-touch-item-width:45% !default;
+
+
+$shopping-item-image-width:45% !default;
+$shopping-item-detail-width:55% !default;
+$shopping-item-alt-images-margin:1em 0 0 0 !default;
+$shopping-item-alt-image-margin:0 1em 0 0 !default;
+$shopping-item-navigation-font-size:18px !default;
+$shopping-item-detail-padding:2em !default;
+$shopping-item-detail-child-margin:0 0 18px 0 !default;
+
+$shopping-checkout-font-family:'robotoregular' !default;
+$shopping-checkout-font-family-bold:'robotomedium' !default;
+
+$shopping-checkout-collapse-background:#e0e0e0 !default;
+$shopping-checkout-collapse-border-color:#e0e0e0 !default;
+$shopping-checkout-collapse-margin:0 !default;
+$shopping-checkout-collapse-padding:0 !default;
+$shopping-checkout-collapse-border-radius:2px !default;
+$shopping-checkout-collapse-width:auto !default;
+$shopping-checkout-collapse-font-size:1em !default;
+$shopping-checkout-collapse-item-header-button-background:#b8bbb8 !default;
+$shopping-checkout-collapse-item-header-button-color:#fff !default;
+$shopping-checkout-collapse-item-header-background:#f5f5f5 !default;
+$shopping-checkout-collapse-item-header-height:3em !default;
+$shopping-checkout-collapse-item-header-expand-margin:0 0 1px 0 !default;
+$shopping-checkout-collapse-item-header-padding:0 3em 0 1em !default;
+$shopping-checkout-collapse-item-header-justification:space-between !default;
+$shopping-checkout-collapse-item-header-alignment:center !default;
+$shopping-checkout-collapse-item-header-border-radius:3px !default;
+$shopping-checkout-collapse-item-section-background:#fff !default;
+$shopping-checkout-collapse-item-section-padding:1em !default;
+$shopping-checkout-collapse-item-section-margin:0 0 1px 0 !default;
+$shopping-checkout-collapse-item-section-min-height:10em !default;
+$shopping-checkout-collapse-item-section-border-radius:3px !default;
+$shopping-checkout-collapse-item-icon-color:#ccc !default;
+$shopping-checkout-collapse-item-icon-span-color:#fff !default;
+
+$shopping-checkout-shipping-address-background:#f5f5f5 !default;
+$shopping-checkout-shipping-address-border:#ddd !default;
+
+$shopping-checkout-progress-font-family:'robotolight' !default;
+$shopping-checkout-progress-border-color:#ccc !default;
+$shopping-checkout-progress-icon-color:#666 !default;
+$shopping-checkout-progress-icon-border-color:#bdbdbd !default;
+$shopping-checkout-progress-font-family:'robotolight' !default;
+$shopping-checkout-progress-icon-size:24px !default;
+$shopping-checkout-progress-item-width:9em !default;
+$shopping-checkout-progress-icon-margin-top:null !default;
+$shopping-checkout-progress-label-top:-3px !default;
+$shopping-checkout-progress-label-left:7px !default;
+$shopping-checkout-progress-complete-color:null !default;
+$shopping-checkout-progress-complete-icon-top:-4px !default;
+$shopping-checkout-progress-complete-icon-left:0 !default;
+$shopping-checkout-progress-vertical-item-height:5em !default;
+$shopping-checkout-progress-vertical-label-margin:.3em 0 0 1em !default;
+$shopping-checkout-progress-complete-icon:"\e623" !default;
+$shopping-checkout-progress-complete-icon-font-family:'material' !default;
+$shopping-checkout-progress-complete-icon-font-size:24px !default;
+
+$_primary-color:$core-primary-color;
+$_secondary-color:$core-secondary-color;
+
+

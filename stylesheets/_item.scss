@@ -1,0 +1,100 @@
+@mixin shopping-item(
+  $image-width:$shopping-item-image-width,
+  $detail-width:$shopping-item-detail-width,
+  $alt-images-margin:$shopping-item-alt-images-margin,
+  $alt-image-margin:$shopping-item-alt-image-margin,
+  $navigation-font-size:$shopping-item-navigation-font-size,
+  $detail-padding:$shopping-item-detail-padding,
+  $detail-child-margin:$shopping-item-detail-child-margin
+){
+  .shopping-item-touch-header{
+      @include desktop-content(){
+          display:none;
+      }
+      text-align:center;
+  }
+  shopping-item{
+    width:100%;
+    @include flexbox($justification:flex-start,$alignment:flex-start);
+    @include touch-content(){
+        @include flex-wrap(wrap);
+    }
+    &>item-images{
+      @include flexbox-column($alignment:flex-start,$justification:flex-start);
+      width:$image-width;
+      main-image{
+        display:block;
+        &>img{
+          max-width:100% !important;
+          height:auto !important;
+        }
+      }
+      &>alt-images{
+        @include flexbox($justification:flex-start,$alignment:center);
+        margin: $alt-images-margin;
+        &>alt-image{
+          display:block;
+          margin:$alt-image-margin;
+          cursor:pointer;
+        }
+      }
+      @include touch-content(){
+          width:80%;
+      }
+      @include phone-content(){
+          width:100%;
+      }
+    }
+    &>item-detail{
+      width:$detail-width;
+      padding-left:$detail-padding;
+      @include flexbox-column($alignment:flex-start,$justification:flex-start);
+      @include touch-content(){
+          width:100%;
+          .desktop-header{
+              display:none;
+          }
+          padding-left:0;
+      }
+      &>*{
+        margin:$detail-child-margin;
+      }
+      &>h2,h3,h4{
+        &:first-child{
+          margin-top:0;
+          padding-top:0
+        }
+      }
+      &>h2,h3,h4,h5,h6 +  *{
+        margin-top:18px;
+      }
+      .label + *{
+        margin-top:8px;
+      }
+      form{
+        &.padding{
+          padding:2em;
+        }
+        &.width{
+          width:500px;
+          max-width:100%;
+        }
+      }
+    }
+
+    .column{
+      @include flexbox-column($alignment:flex-start,$justification:flex-start);
+    }
+
+    .flex{
+      width:100%;
+      @include flexbox($alignment:flex-start,$justification:flex-start);
+      &.center{
+        @include justify-content(center);
+      }
+    }
+
+    @content;
+  }
+}
+
