@@ -2,7 +2,7 @@
   "name": "sass-shopping-components",
   "description": "Sass mixins for shopping components",
   "version": "1.0.0",
-  "main": "dist/md.components.css",
+  "main": "sass-shopping-components.html",
   "authors": [
     "S. Francis"
   ],
